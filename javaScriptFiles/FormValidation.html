@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <header>Form Validation</header>
+    <script src="formValidation.js"></script>
+    <script src="jsCookies.js"></script>
+    <body>
+
+        <form name='myform' action='Thankyou.html' onsubmit="return validate()">
+            Name:<label name="Name"></label>
+            <input type="text" name="Name"> <br/><br/>  
+            Password:<input type="password" name="password"><br/><br/> 
+            Re-Type Password:<input type="password" name="password2">
+            <input type="submit" value="register" >
+
+        </form>
+    </body>
+</html> 
+<br/> <br/>
+<html>
+    <header><h1>jsCookies</h1></header>
+    <body>
+        Name:<input type="text" id="name"><br/><br/>
+        Email:<input type="email" id="email"><br/><br/>
+        Course:<input type="text" id="course"><br/><br/>
+        <input type="button" value="setCookies" onclick="setCookies()"><br/><br/>
+        <input type="button" value="getCookies" onclick="getCookies()"><br/><br/> 
+        <input type="button" value="setCookiesUseJson" onclick="setCookiesjs()"><br/><br/>
+        <input type="button" value="getCookiesUseJson" onclick="getCookiesjs()"> <br/><br/>
+        
+        <script>
+            function setCookiesjs(){
+                var obj={};
+                obj.name=document.getElementById("name").value;
+                obj.email=document.getElementById("email").value;
+                obj.course=document.getElementById("course").value;
+                // convert js object to json string 
+                var jsonString=JSON.stringify(obj);
+                document.cookie=jsonString;
+            } 
+            function getCookiesjs(){
+                if(document.cookie.length!=0){
+                    //parse json string to json object 
+                    var obj=JSON.parse(document.cookie);
+                    alert("name:"+obj.name+"email: "+obj.email+"course:"+obj.course);
+                    
+                }
+                
+                else
+                {
+                    
+                    alert("There is no cookie available");
+                }
+            }
+            
+        </script>
+
+             
+    </body>
+</html>
