@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <header><h1>Js Events/addEventListener</h1></header>
+    <body>
+        <p id="p1">This is the Multiple events Page</p>
+        <p id="p2">This is the second Paragraph </p>
+        <button id='b1'>mouseover Me</button>
+        
+        <script>
+            function fun1(){
+                alert("First function is loaded");
+            }
+            function fun2(){
+                b1.style.background="pink";
+                
+                b1.style.width="500px";
+                
+            }
+            function fun3(){
+                document.writeln("Third function loaded");
+            }
+            var mybtn=document.getElementById("b1");
+            mybtn.addEventListener("click",fun1);
+            mybtn.addEventListener("mouseover",fun2);
+            mybtn.addEventListener("mouseleave",fun3);
+        </script>
+        <h3>Example of js onresize event!</h3>
+        <p id="para1">Try to resize the page</p>
+        <p id="para2">you have resized the window <span id="s1">0 </span>times</p>
+        <script>
+            document.getElementsByTagName("BODY")[0].onresize=function(){fun()};
+            var i=0;
+            
+            function fun(){
+                var res="Width="+window.outerWidth+"height="+window.outerHeight;
+                document.getElementById("para2").innerHTML=res;
+                var res1=i+=1;
+                document.getElementById("s1").innerHTML=res1;
+            }
+        </script>
+        <h2>Exception Handling</h2>
+        <p id='p01'></p>
+        <script>
+            const message=document.getElementById("p01");
+            message.innerHTML="";
+            try{
+            var a=450;
+            var b=0;
+            
+            document.writeln("Value of A is:"+a);
+            document.writeln("Value of B is:"+b);
+            if(a/b) throw "can't devide by Zero";
+            }
+            catch(err){
+                message.innerHTML="Number  "+err;
+            };
+            document.text="<h3> This Keyword</h3>;"
+            var address={
+                name:"Panthi",
+                city:"Ahmedabad",
+                State:"Gujarat",
+                information:function(){
+                    return "<br> Tha Data of "+this.name+" is "+"City "+this.city+" and "+"State is "+this.State;
+                }
+            };
+            var address1={
+                info:function(){
+                    return "<br> This is print using Call() and apply() "+this.name+" is "+"City "+this.city+" and "+"State is "+this.State;
+                }
+            };
+            var fetch=address.information();
+            document.writeln(fetch);
+            document.writeln(address1.info.call(address));
+            document.writeln(address1.info.apply(address));
+            var a=10;
+            debugger;
+            document.writeln(a);
+            document.writeln(c);
+            
+        </script>
+
+
+    </body>
+</html>
